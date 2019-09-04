@@ -2,7 +2,7 @@ import XCTest
 @testable import PursuitCoreiOSStacksLab
 
 class PursuitCoreiOSStacksLabTests: XCTestCase {
-
+    
     var myStack = Stack<Int>()
     var emptyStack = Stack<Int>()
     var myOtherStack = Stack<Int>()
@@ -39,13 +39,13 @@ class PursuitCoreiOSStacksLabTests: XCTestCase {
     }
     
     func testReverse() {
-        let myReversedStack = Stack<Int>()
+        var myReversedStack = Stack<Int>()
         myReversedStack.push(element: 30)
         myReversedStack.push(element: 17)
         myReversedStack.push(element: 9)
         myReversedStack.push(element: 5)
         
-        let userReversedStack = reverse(stack: myStack)
+        var userReversedStack = reverse(stack: myStack)
         
         for _ in 0..<3 {
             XCTAssertTrue(myReversedStack.pop() == userReversedStack.pop())
@@ -60,7 +60,7 @@ class PursuitCoreiOSStacksLabTests: XCTestCase {
     }
     
     func testPushBottom() {
-        let pushedBottomStack = Stack<Int>()
+        var pushedBottomStack = Stack<Int>()
         pushedBottomStack.push(element: 40)
         pushedBottomStack.push(element: 5)
         pushedBottomStack.push(element: 9)
@@ -73,7 +73,7 @@ class PursuitCoreiOSStacksLabTests: XCTestCase {
     func testIsBalanced() {
         XCTAssertTrue(isBalanced(str: "((()))"))
         XCTAssertFalse(isBalanced(str: "((())"))
-        XCTAssertFalse(isBalanced(str: "(()((())()))"))
+        XCTAssertTrue(isBalanced(str: "(()(()()))"))
         XCTAssertTrue(isBalanced(str: "(()((())(())))"))
     }
     
